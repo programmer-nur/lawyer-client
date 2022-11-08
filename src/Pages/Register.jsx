@@ -33,6 +33,7 @@ const Register = () => {
         createGoogle()
         .then(res=>{
             const user = res.user;
+            console.log(user);
             toast.success('Sign Up Successfully' , { autoClose: 700})
         }).catch(err=>{
             toast.warning(err.message, {autoClose:700})
@@ -54,7 +55,7 @@ const Register = () => {
 			<label htmlFor="password" className="block dark:text-gray-400">Password</label>
 			<input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 text-black focus:dark:border-violet-400" />
 			<div className="flex justify-end text-xs dark:text-gray-400">
-				<a rel="noopener noreferrer" href="#">Forgot Password?</a>
+				<Link rel="noopener noreferrer" href="#">Forgot Password?</Link>
 			</div>
 		</div>
 		<button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 bg-amber-600">Sign Up</button>
