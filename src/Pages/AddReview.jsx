@@ -33,7 +33,10 @@ const AddReview = ({service}) => {
 		})
 		.then(res=>res.json())
 		.then(data=>{
-			console.log(data);
+			if(data.acknowledged){
+				from.reset()
+				toast.success('Review Added', {autoClose: 700})
+			};
 		})
 		
 	}
@@ -76,7 +79,7 @@ const AddReview = ({service}) => {
 		<div className="flex flex-col w-full">
 				<div className="col-span-full my-4 sm:col-span-3">
 					<label for="email" className="text-sm">Name</label>
-					<input id="email" name='name' type="text" placeholder="Email" className="w-full rounded-md focus:ring focus:ring-opacity-75 p-2 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900" required/>
+					<input id="email" name='name' type="text" placeholder="Name" className="w-full rounded-md focus:ring focus:ring-opacity-75 p-2 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900" required/>
 				</div>
 				<div className="col-span-full my-4 sm:col-span-3">
 					<label for="email" className="text-sm">Email</label>
@@ -85,7 +88,7 @@ const AddReview = ({service}) => {
 			<textarea name='message' rows="3" placeholder="Message..." className="p-4 rounded-md resize-none text-gray-900 dark:bg-gray-900" required></textarea>
 			{
 				user?.uid? 
-				<div className='py-2 text-center bg-fuchsia-600 border border-red-500 my-4'><input type="submit" value="Submit" /></div>:
+				<button className='py-2 text-center bg-fuchsia-600 border border-red-500 my-4'>Add Review</button>:
 				<p>Please Log in! <Link className='text-red-600' to='/login'>Log In</Link></p>
 
 			}

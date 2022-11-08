@@ -24,9 +24,9 @@ const ServiceDetails = () => {
 <section className='my-5'>
 <Review service={{img,name,_id}}/>
 </section>
-{/* <section className='my-5'>
+<section className='my-5'>
 <AddReview service={{img,name,_id}}/>
-</section> */}
+</section>
 </>
     );
 };
