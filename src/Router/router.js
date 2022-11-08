@@ -10,6 +10,7 @@ import ServiceDetails from "../Pages/ServiceDetails";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
+import TotalReview from "../Pages/TotalReview";
 
 const router = createBrowserRouter([
     {
@@ -49,7 +50,8 @@ const router = createBrowserRouter([
             },
             {
                 path:'/review',
-                element:<Review/>
+                loader:()=>fetch('http://localhost:5000/review'),
+                element:<TotalReview/>
             },
             {
                 path:'/about',

@@ -3,14 +3,14 @@ import ReviewDetails from './ReviewDetails';
 
 const Review = ({service}) => {
     console.log(service);
-    const [reviews, setReviews] = useState({})
+    const [reviews, setReviews] = useState([])
 
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/review?serviceId=${service._id}`)
+        fetch(`http://localhost:5000/review?serviceId=${service?._id}`)
         .then(res=>res.json())
         .then(data=>setReviews(data))
-    },[service._id])
+    },[service?._id])
     return (
         <>
             <h3 className="text-3xl">Your have  reviews: {reviews.length}</h3>
