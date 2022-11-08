@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const LimiteServices = ({service}) => {
    console.log(service);
@@ -14,7 +15,9 @@ const LimiteServices = ({service}) => {
                 <p className='text-lg font-semibold'>Price: {service.price}</p>
                 <p>Rating: {service.rating}</p>
             </div>
+            <Link to={`/service/${service._id}`}>
             <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-400 text-gray-900">Details</button>
+            </Link>
         </div>
         
     </div>
