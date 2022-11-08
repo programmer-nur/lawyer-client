@@ -8,13 +8,13 @@ const LimiteServices = ({service}) => {
         <div className="flex flex-col justify-between p-6 space-y-8">
             <div className="space-y-2">
                 <h2 className="text-3xl font-semibold tracking-wide">{service.name}</h2>
-                <p className="dark:text-gray-100">{service.des}.</p>
+                <p className="dark:text-gray-100">{service.des?service.des.slice(0,100)+'...':service.des}.</p>
             </div>
             <div className='flex justify-between'>
                 <p className='text-lg font-semibold'>Price: {service.price}</p>
                 <p>Rating: {service.rating}</p>
             </div>
-            <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-400 text-gray-900">Read more</button>
+            <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-400 text-gray-900">Details</button>
         </div>
         
     </div>
