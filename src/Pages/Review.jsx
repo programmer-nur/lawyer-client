@@ -13,7 +13,7 @@ const Review = ({service}) => {
     },[service?._id])
     return (
         <>
-            <h3 className="text-3xl">Your have  reviews: {reviews.length}</h3>
+            <h3 className="text-3xl">There are: {reviews.length} reviews</h3>
         <div className='grid grid-cols-3 gap-2'>
         {
             reviews.map(review=><ReviewDetails

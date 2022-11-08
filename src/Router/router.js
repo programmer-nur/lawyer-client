@@ -11,6 +11,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import TotalReview from "../Pages/TotalReview";
+import PrivetRouter from "./PrivetRouter";
 
 const router = createBrowserRouter([
     {
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
             {
                 path:'/review',
                 loader:()=>fetch('http://localhost:5000/review'),
-                element:<TotalReview/>
+                element:<PrivetRouter><TotalReview/></PrivetRouter>
             },
             {
                 path:'/about',
