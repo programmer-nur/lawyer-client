@@ -5,7 +5,7 @@ import TotalReviewDetails from './TotalReviewDetails';
 
 const TotalReview = () => {
     const review = useLoaderData([])
-    const [reviews , setReview]=useState({})
+    const [reviews , setReview]=useState(review)
     
     const handelDelete = id =>{
         fetch(`http://localhost:5000/review/${id}`,{
@@ -24,10 +24,10 @@ const TotalReview = () => {
     }
     return (
         <>
-        <h2 className='text-3xl text-orange-500 my-8'>Total Reviews : <span className='font-semibold'>{review.length}</span></h2>
-        <div>
+        <h2 className='text-3xl text-orange-500 my-8'>Total Reviews : <span className='font-semibold'>{reviews.length === 0 ? 'No reviews were added' : reviews.length}</span></h2>
+        <div className=''>
             {
-                review.map(rev=> <TotalReviewDetails
+                reviews.map(rev=> <TotalReviewDetails
                 key={rev._id}
                 rev={rev}
                 handelDelete={handelDelete}

@@ -4,7 +4,7 @@ import AddReview from './AddReview';
 import Review from './Review';
 
 const ServiceDetails = () => {
-    const {img,name,des,_id}= useLoaderData({})
+    const {img,name,des,price,_id}= useLoaderData({})
     return (
         <>
         <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
@@ -16,6 +16,7 @@ const ServiceDetails = () => {
 				<p className=" text-gray-400">By
 					{des}
 				</p>
+				<p className='text-orange-400'> Price : {price}</p>
 			</div>
 		</div>
 	</div>
