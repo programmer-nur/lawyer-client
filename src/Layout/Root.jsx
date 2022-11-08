@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Footer from '../Shaerd/Footer';
 import Header from '../Shaerd/Header';
 
 const Root = () => {
@@ -7,6 +8,7 @@ const Root = () => {
         <div>
             <Header/>
             <Outlet/>
+            <Footer/>
         </div>
     );
 };

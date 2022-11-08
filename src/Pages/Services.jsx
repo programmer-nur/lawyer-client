@@ -14,7 +14,6 @@ const Services = () => {
                 service={service}
                 />)
             }
-            <div className='w-full mx-auto'><Link to='/blog'><button className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-400 text-gray-900">See All</button></Link></div>
         </div>
     );
 };

@@ -19,13 +19,13 @@ const Header = () => {
                     <Link to='/services' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Services</Link>
                 </li>
                 <li className="flex">
-                    <Link rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Review</Link>
+                    <Link to='/review' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Review</Link>
                 </li>
                 <li className="flex">
-                    <Link rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Blog</Link>
+                    <Link to='/blog' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Blog</Link>
                 </li>
                 <li className="flex">
-                    <Link rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">About</Link>
+                    <Link to='/about' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">About</Link>
                 </li>
             </ul>
             <div className="items-center flex-shrink-0 hidden lg:flex">
