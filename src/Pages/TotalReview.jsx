@@ -8,7 +8,7 @@ const TotalReview = () => {
     const [reviews , setReview]=useState(review)
     
     const handelDelete = id =>{
-        fetch(`http://localhost:5000/review/${id}`,{
+        fetch(`https://lawyer-server.vercel.app/review/${id}`,{
             method:'DELETE',
         })
         .then(res=>res.json())

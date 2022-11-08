@@ -7,14 +7,14 @@ const Review = ({service}) => {
 
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/review?serviceId=${service?._id}`)
+        fetch(`https://lawyer-server.vercel.app/review?serviceId=${service?._id}`)
         .then(res=>res.json())
         .then(data=>setReviews(data))
     },[service?._id])
     return (
         <>
             <h3 className="text-3xl">There are: {reviews.length} reviews</h3>
-        <div className='grid grid-cols-3 gap-2'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-2'>
         {
             reviews.map(review=><ReviewDetails
             key={review._id}

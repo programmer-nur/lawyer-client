@@ -12,6 +12,7 @@ import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import TotalReview from "../Pages/TotalReview";
 import PrivetRouter from "./PrivetRouter";
+import AddServices from "../Pages/AddServices";
 
 const router = createBrowserRouter([
     {
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
             {
                 path:'/services',
                 element:<Services/>,
-                loader:()=>fetch(`http://localhost:5000/services`)
+                loader:()=>fetch(`https://lawyer-server.vercel.app/services`)
             },
             {
                 path:'/blog',
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/service/:id',
-                loader:({params})=> fetch(`http://localhost:5000/services/${params.id}`),
+                loader:({params})=> fetch(`https://lawyer-server.vercel.app/services/${params.id}`),
                 element:<ServiceDetails/>
             },
             {
@@ -51,8 +52,12 @@ const router = createBrowserRouter([
             },
             {
                 path:'/review',
-                loader:()=>fetch('http://localhost:5000/review'),
+                loader:()=>fetch('https://lawyer-server.vercel.app/review'),
                 element:<PrivetRouter><TotalReview/></PrivetRouter>
+            },
+            {
+                path:'/addservices',
+                element:<AddServices/>
             },
             {
                 path:'/about',

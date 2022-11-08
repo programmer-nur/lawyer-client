@@ -7,7 +7,7 @@ const AllServices = () => {
     console.log(services);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/servicesall')
+        fetch('https://lawyer-server.vercel.app/servicesall')
         .then(res=>res.json())
         .then(data=>serServices(data))
     },[])
@@ -15,7 +15,7 @@ const AllServices = () => {
     return (
         <>
         <h3 className="text-5xl text-center my-8">All Services </h3>
-        <div className='grid grid-cols-3 gap-4'>
+        <div className='grid grid-cols-1 mx-3 md:grid-cols-3 gap-4'>
             {
                 services.map(service=><LimiteServices
                 service={service}
