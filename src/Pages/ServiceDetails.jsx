@@ -1,9 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import AddReview from './AddReview';
+import Review from './Review';
 
 const ServiceDetails = () => {
-    const {img,name,des}= useLoaderData({})
+    const {img,name,des,_id}= useLoaderData({})
     return (
         <>
         <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
@@ -21,8 +22,11 @@ const ServiceDetails = () => {
 </div>
 <hr className=''/>
 <section className='my-5'>
-<AddReview/>
+<Review service={{img,name,_id}}/>
 </section>
+{/* <section className='my-5'>
+<AddReview service={{img,name,_id}}/>
+</section> */}
 </>
     );
 };
