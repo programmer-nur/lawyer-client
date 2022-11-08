@@ -11,6 +11,7 @@ const Register = () => {
         e.preventDefault()
         const form = e.target;
         const name = form.name.value;
+        const photoUrl =form.photourl.value;
         const email= form.email.value;
         const password = form.password.value;
 
@@ -18,7 +19,7 @@ const Register = () => {
         .then(res=>{
             const user = res.user;
             updateProfile(auth.currentUser, {
-				displayName:name
+				displayName:name, photoURL: photoUrl
 			  }).then(() => {
 				toast.success('Sign Successfully', { autoClose: 500})
                 form.reset()
@@ -46,6 +47,10 @@ const Register = () => {
 		<div className="space-y-1 text-sm">
 			<label htmlFor="username" className="block dark:text-gray-400">Username</label>
 			<input type="text" name="name" id="username" placeholder="Username" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 text-black focus:dark:border-violet-400" />
+		</div>
+        <div className="space-y-1 text-sm">
+			<label htmlFor="username" className="block dark:text-gray-400">PhotoURL</label>
+			<input type="text" name="photourl" id="photoUrl" placeholder="Photo URL" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
 		</div>
 		<div className="space-y-1 text-sm">
 			<label htmlFor="email" className="block dark:text-gray-400">Email</label>
