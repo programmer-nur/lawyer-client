@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { MyContext } from "../Context/AuthContext";
@@ -34,6 +34,7 @@ const Login = () => {
     createGoogle()
       .then((res) => {
         const user = res.user;
+        console.log(user);
         toast("Log In SuccessFully ", { autoClose: 700 });
       })
       .catch((err) => {
@@ -80,9 +81,9 @@ const Login = () => {
             required
           />
           <div className="flex justify-end text-xs dark:text-gray-400">
-            <a rel="noopener noreferrer" href="#">
+            <Link rel="noopener noreferrer" href="#">
               Forgot Password?
-            </a>
+            </Link>
           </div>
         </div>
         <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 bg-purple-700">

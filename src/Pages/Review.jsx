@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 import ReviewDetails from './ReviewDetails';
 
 const Review = ({service}) => {
-    console.log(service);
+    console.log(service._id);
     const [reviews, setReviews] = useState([])
 
 
     useEffect(()=>{
-        fetch(`https://lawyer-server.vercel.app/review?serviceId=${service?._id}`)
+        fetch(`http://localhost:5000/reviews?serviceId=${service?._id}`)
         .then(res=>res.json())
-        .then(data=>setReviews(data))
+        .then(data=>{
+            console.log(data);
+            setReviews(data)})
     },[service?._id])
     return (
         <>
@@ -27,3 +29,5 @@ const Review = ({service}) => {
 };
 
 export default Review;
+
+

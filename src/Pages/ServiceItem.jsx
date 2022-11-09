@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const ServiceItem = ({service}) => {
     const {img,name,price,rating,des,_id}=service
     return (
-        <div className=" rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
+        <div className=" rounded-md shadow-md bg-gray-900 text-gray-100">
 	<PhotoProvider className='w-screen'>
 		<PhotoView  src={img}>
 		<img src={img} alt="" className="object-cover cursor-pointer object-center w-full rounded-t-md h-72 dark:bg-gray-500" />

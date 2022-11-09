@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
-import { MyContext } from '../Context/AuthContext';
+import React from 'react';
 
 const ReviewDetails = ({review}) => {
-    console.log(review);
-    const {user} = useContext(MyContext)
-    return (
-        <div>
+	console.log(review._id);
+	return (
+		<div>
                     <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
 	<div className="flex justify-between p-4">
 		<div className="flex space-x-4">
@@ -14,7 +12,6 @@ const ReviewDetails = ({review}) => {
 			</div>
 			<div>
 				<h4 className="font-bold">{review.UserName}</h4>
-<span className="text-xs dark:text-gray-400">{user.email}</span>
 			</div>
 		</div>
 		
@@ -24,7 +21,7 @@ const ReviewDetails = ({review}) => {
 	</div>
 </div>
         </div>
-    );
+	);
 };
 
 export default ReviewDetails;

@@ -23,7 +23,7 @@ const AddReview = ({service}) => {
 
 		}
 
-		fetch(`https://lawyer-server.vercel.app/review`, {
+		fetch(`http://localhost:5000/review`, {
 			method:'POST',
 			headers:{
 				'content-type':'application/json'
@@ -49,11 +49,11 @@ const AddReview = ({service}) => {
 
 		<div className="flex flex-col w-full">
 				<div className="col-span-full my-4 sm:col-span-3">
-					<label for="email" className="text-sm">Name</label>
+					<label htmlFor="email" className="text-sm">Name</label>
 					<input id="email" name='name' type="text" placeholder="Name" className="w-full rounded-md focus:ring focus:ring-opacity-75 p-2 focus:ring-violet-400 border-gray-700 text-gray-900" required/>
 				</div>
 				<div className="col-span-full my-4 sm:col-span-3">
-					<label for="email" className="text-sm">Email</label>
+					<label htmlFor="email" className="text-sm">Email</label>
 					<input id="email" name='email' type="text" placeholder="Email" defaultValue={user?.email} className="w-full rounded-md focus:ring focus:ring-opacity-75 p-2 focus:ring-violet-400 dark:border-gray-700 text-gray-900" required />
 				</div>
 			<textarea name='message' rows="3" placeholder="Message..." className="p-4 rounded-md resize-none text-gray-900 dark:bg-gray-900" required></textarea>

@@ -4,7 +4,6 @@ import AllServices from "../Pages/AllServices";
 import Blog from "../Pages/Blog";
 import Home from "../Pages/Home/Home.jsx";
 import Services from "../Pages/Services";
-import Review from "../Pages/Review";
 import About from "../Pages/About";
 import ServiceDetails from "../Pages/ServiceDetails";
 import Login from "../Pages/Login";
@@ -25,13 +24,9 @@ const router = createBrowserRouter([
                 element:<Home/>
             },
             {
-                path:'/home',
-                element:<Home/>
-            },
-            {
                 path:'/services',
                 element:<Services/>,
-                loader:()=>fetch(`https://lawyer-server.vercel.app/services`)
+                loader:()=>fetch(`http://localhost:5000/services`)
             },
             {
                 path:'/blog',
@@ -39,7 +34,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/service/:id',
-                loader:({params})=> fetch(`https://lawyer-server.vercel.app/services/${params.id}`),
+                loader:({params})=> fetch(`http://localhost:5000/services/${params.id}`),
                 element:<ServiceDetails/>
             },
             {
@@ -52,7 +47,6 @@ const router = createBrowserRouter([
             },
             {
                 path:'/review',
-                loader:()=>fetch('https://lawyer-server.vercel.app/review'),
                 element:<PrivetRouter><TotalReview/></PrivetRouter>
             },
             {
