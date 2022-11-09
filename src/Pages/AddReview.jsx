@@ -23,7 +23,7 @@ const AddReview = ({service}) => {
 
 		}
 
-		fetch(`http://localhost:5000/review`, {
+		fetch(`https://lawyer-server.vercel.app/review`, {
 			method:'POST',
 			headers:{
 				'content-type':'application/json'
@@ -60,7 +60,7 @@ const AddReview = ({service}) => {
 			{
 				user?.uid? 
 				<button className='py-2 text-center bg-fuchsia-600 border border-red-500 my-4'>Add Review</button>:
-				<p>Please Log in! <Link className='text-red-600' to='/login'>Log In</Link></p>
+				<p className='pt-2'>Please login to add a review ! <Link className='text-red-600' to='/login'>Log In</Link></p>
 
 			}
 		</div>

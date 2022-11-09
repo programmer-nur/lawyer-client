@@ -14,7 +14,7 @@ const ServiceDetails = () => {
 		<div className="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md bg-gray-900">
 			<div className="space-y-2">
 				<p className="inline-block text-white text-2xl font-semibold sm:text-3xl">{name}</p>
-				<p className=" text-gray-400">By
+				<p className=" text-gray-400">
 					{des}
 				</p>
 				<p className='text-orange-400'> Price : $ {price}</p>

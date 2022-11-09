@@ -23,7 +23,7 @@ const AddServices = () => {
         }
         console.log(name,des,photo,price,rating);
 
-        fetch('http://localhost:5000/services',{
+        fetch('https://lawyer-server.vercel.app/services',{
             method:'POST',
             headers:{
                 'content-type': 'application/json'

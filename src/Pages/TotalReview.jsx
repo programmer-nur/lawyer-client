@@ -7,14 +7,14 @@ const TotalReview = () => {
     const {user} = useContext(MyContext)
     const [reviews , setReview]=useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/review?email=${user?.email}`)
+        fetch(`https://lawyer-server.vercel.app/review?email=${user?.email}`)
         .then(res=>res.json())
         .then(data=>setReview(data))
     },[user?.email])
     console.log(reviews);
     
     const handelDelete = id =>{
-        fetch(`http://localhost:5000/review/${id}`,{
+        fetch(`https://lawyer-server.vercel.app/review/${id}`,{
             method:'DELETE',
         })
         .then(res=>res.json())
