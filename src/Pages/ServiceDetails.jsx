@@ -16,7 +16,7 @@ const ServiceDetails = () => {
 				<p className=" text-gray-400">By
 					{des}
 				</p>
-				<p className='text-orange-400'> Price : {price}</p>
+				<p className='text-orange-400'> Price : $ {price}</p>
 			</div>
 		</div>
 	</div>

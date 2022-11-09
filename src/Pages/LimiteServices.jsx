@@ -12,7 +12,7 @@ const LimiteServices = ({service}) => {
                 <p className="dark:text-gray-100">{service.des?service.des.slice(0,100)+'...':service.des}.</p>
             </div>
             <div className='flex justify-between'>
-                <p className='text-lg font-semibold'>Price: {service.price}</p>
+                <p className='text-lg font-semibold'>Price: ${service.price}</p>
                 <p>Rating: {service.rating}</p>
             </div>
             <Link to={`/service/${service._id}`}>

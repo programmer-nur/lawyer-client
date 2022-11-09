@@ -23,7 +23,7 @@ const AddReview = ({service}) => {
 
 		}
 
-		fetch(`https://lawyer-server.vercel.app//review`, {
+		fetch(`https://lawyer-server.vercel.app/review`, {
 			method:'POST',
 			headers:{
 				'content-type':'application/json'

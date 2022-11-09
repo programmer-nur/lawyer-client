@@ -21,7 +21,7 @@ const ServiceItem = ({service}) => {
 			}.</p>
 		</div>
 		<div className='flex justify-between'>
-                <p className='text-lg font-semibold'>Price: {price}</p>
+                <p className='text-lg font-semibold'>Price: ${price}</p>
                 <p>Rating: {rating}</p>
             </div>
 		<Link to={`/service/${_id}`}>

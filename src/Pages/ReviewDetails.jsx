@@ -14,7 +14,7 @@ const ReviewDetails = ({review}) => {
 			</div>
 			<div>
 				<h4 className="font-bold">{review.UserName}</h4>
-				<span className="text-xs dark:text-gray-400">2 days ago</span>
+<span className="text-xs dark:text-gray-400">{user.email}</span>
 			</div>
 		</div>
 		
