@@ -12,6 +12,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import TotalReview from "../Pages/TotalReview";
 import PrivetRouter from "./PrivetRouter";
 import AddServices from "../Pages/AddServices";
+import AddModal from "../Pages/AddModal";
 
 const router = createBrowserRouter([
     {
@@ -60,6 +61,11 @@ const router = createBrowserRouter([
             {
                 path:'/allServices',
                 element:<AllServices/>
+            },
+            {
+                path:'/update/:id',
+               loader:({params})=>fetch(`https://lawyer-server.vercel.app/review/${params.id}`),
+                element:<AddModal/>
             }
         ]
     }

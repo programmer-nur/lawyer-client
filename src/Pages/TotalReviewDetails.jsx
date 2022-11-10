@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TotalReviewDetails = ({ rev, handelDelete }) => {
   const { photo, service, _id, message } = rev;
@@ -39,9 +40,9 @@ const TotalReviewDetails = ({ rev, handelDelete }) => {
                     </svg>
                     <span>Delete</span>
                   </button>
-                  <button className="mt-4 bg-orange-400 px-4 text-black">
+                  <Link  to={`/update/${_id}`}><button className="mt-4 bg-orange-400 px-4 text-black">
                     Edit
-                  </button>
+                  </button></Link>
                 </div>
               </div>
             </div>
