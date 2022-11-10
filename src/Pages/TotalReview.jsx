@@ -9,7 +9,7 @@ const TotalReview = () => {
   const [reviews, setReview] = useState([]);
   useTitle("total-review");
   useEffect(() => {
-    fetch(`http://localhost:5000/review?email=${user?.email}`,{
+    fetch(`https://lawyer-server.vercel.app/review?email=${user?.email}`,{
         headers:{
             authorization: `Bearer ${localStorage.getItem('lawyer-token')}`
         }
@@ -23,7 +23,7 @@ const TotalReview = () => {
   }, [user?.email,logOut]);
 
   const handelDelete = (id) => {
-    fetch(`http://localhost:5000/review/${id}`, {
+    fetch(`https://lawyer-server.vercel.app/review/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -43,7 +43,7 @@ const TotalReview = () => {
           {reviews.length === 0 ? "No reviews were added" : reviews.length}
         </span>
       </h2>
-      <div className="">
+      <div className="mx-2">
         {reviews?.map((rev) => (
           <TotalReviewDetails
             key={rev._id}

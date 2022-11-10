@@ -27,7 +27,7 @@ const Login = () => {
         }
         console.log(user);
 
-        fetch('http://localhost:5000/jwt',{
+        fetch('https://lawyer-server.vercel.app/jwt',{
           method:'POST',
           headers:{
             'content-type':'application/json'
