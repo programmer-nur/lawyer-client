@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { MyContext } from '../Context/AuthContext';
+import useTitle from './useTitle';
 
 const AddReview = ({service}) => {
 	const {user} = useContext(MyContext)
-
+	useTitle('add review')
 	const handelAddReview=(e)=>{
 		e.preventDefault() 
 		const from = e.target;
@@ -23,7 +24,7 @@ const AddReview = ({service}) => {
 
 		}
 
-		fetch(`https://lawyer-server.vercel.app/review`, {
+		fetch(`http://localhost:5000/review`, {
 			method:'POST',
 			headers:{
 				'content-type':'application/json'

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import ReviewDetails from './ReviewDetails';
+import useTitle from './useTitle';
 
 const Review = ({service}) => {
     console.log(service._id);
     const [reviews, setReviews] = useState([])
-
+    useTitle('review')
 
     useEffect(()=>{
-        fetch(`https://lawyer-server.vercel.app/reviews?serviceId=${service?._id}`)
+        fetch(`http://localhost:5000/reviews?serviceId=${service?._id}`)
         .then(res=>res.json())
         .then(data=>{
             console.log(data);

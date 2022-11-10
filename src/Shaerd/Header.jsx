@@ -9,7 +9,7 @@ const Header = () => {
         logOut()
         .then((res)=>{
             toast.success('Sign Out Successfully', {autoClose:700})
-            const user =res.user
+            const user =res?.user
             console.log(user);
         })
 
@@ -27,25 +27,33 @@ const Header = () => {
                 <li className="flex">
                     <Link to='/services' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Services</Link>
                 </li>
-                <li className="flex mt-2 lg:mt-0">
+                {
+                    user?.uid &&
+                    <>
+                    <li className="flex mt-2 lg:mt-0">
                     <Link to='/addservices' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Add Service</Link>
                 </li>
                 <li className="flex mt-2 lg:mt-0">
                     <Link to='/review' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Review</Link>
                 </li>
+                </>
+                }
                 <li className="flex mt-2 lg:mt-0">
                     <Link to='/blog' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Blog</Link>
                 </li>
                 <li className="flex mt-2 lg:mt-0">
-                    <Link to='/about' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">About</Link>
+                    <Link to='/about' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">About Me</Link>
                 </li>
             <div className="items-center flex-shrink-0  lg:flex">
 
                 {
                     user?.uid? 
+                    <>
+                    
                     <Link>
                      <button onClick={handelLogOut} className="self-center mt-2 lg:mt-0 px-8 py-3 font-semibold rounded text-gray-100">Sign Out</button>
                     </Link>
+                    </>
                     :
                 <Link to='/login'>
 

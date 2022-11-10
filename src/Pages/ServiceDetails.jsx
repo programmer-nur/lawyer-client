@@ -2,10 +2,11 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import AddReview from './AddReview';
 import Review from './Review';
+import useTitle from './useTitle';
 
 const ServiceDetails = () => {
     const {img,name,des,price,_id}= useLoaderData({})
-	console.log(_id);
+	useTitle('service-details')
     return (
         <>
         <div className="p-5 mx-auto sm:p-10 md:p-16 bg-gray-800 text-gray-100">

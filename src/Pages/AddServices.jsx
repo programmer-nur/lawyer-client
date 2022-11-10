@@ -1,9 +1,10 @@
 import React from 'react';
 import { toast } from 'react-toastify';
+import useTitle from './useTitle';
 
 const AddServices = () => {
 
-
+    useTitle('add service')
     const handelAddService =e=>{
         e.preventDefault()
 
@@ -23,7 +24,7 @@ const AddServices = () => {
         }
         console.log(name,des,photo,price,rating);
 
-        fetch('https://lawyer-server.vercel.app/services',{
+        fetch('http://localhost:5000/services',{
             method:'POST',
             headers:{
                 'content-type': 'application/json'
