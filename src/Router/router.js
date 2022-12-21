@@ -64,8 +64,8 @@ const router = createBrowserRouter([
             },
             {
                 path:'/update/:id',
-               loader:({params})=>fetch(`https://lawyer-server.vercel.app/review/${params.id}`),
-                element:<AddModal/>
+                element:<AddModal/>,
+                loader:({params})=>fetch(`https://lawyer-server.vercel.app/review/${params.id}`)
             }
         ]
     }

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import AddModal from "./AddModal";
 
-const TotalReviewDetails = ({ rev, handelDelete }) => {
+const TotalReviewDetails = ({ rev, handelDelete}) => {
   const { photo, service, _id, message } = rev;
+  const [modal, setModal] = useState(false);
+  const handelOnclose =()=> setModal(false)
   return (
     <div className="flex my-2 flex-col max-w-3xl p-6 space-y-4 sm:p-10 bg-gray-900 text-gray-100">
       <ul className="flex flex-col divide-y divide-gray-700">
@@ -40,9 +43,10 @@ const TotalReviewDetails = ({ rev, handelDelete }) => {
                     </svg>
                     <span>Delete</span>
                   </button>
-                  <Link  to={`/update/${_id}`}><button className="mt-4 bg-orange-400 px-4 text-black">
+                  <Link onClick={()=>setModal(true)}><button className="mt-4 bg-orange-400 px-4 text-black">
                     Edit
                   </button></Link>
+                <AddModal rev={rev} onClose={handelOnclose} visible={modal}/>
                 </div>
               </div>
             </div>
