@@ -1,12 +1,35 @@
 import { updateProfile } from "firebase/auth";
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { MyContext } from "../Context/AuthContext";
 import useTitle from "./useTitle";
+import { useDropzone } from "react-dropzone";
 
 const Register = () => {
   const { creteUser, createGoogle, auth } = useContext(MyContext);
+  const location = useLocation();
+  const [photoFile, setPhotoFile] = useState(null);
+  const from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+  const onDrop = (acceptedFiles) => {
+    const file = acceptedFiles[0];
+    setPhotoFile(file);
+  };
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: "image/*",
+  });
+  const renderDropZoneText = () => {
+    if (isDragActive) {
+      return <p>Drop the photo here...</p>;
+    } else if (photoFile) {
+      return <p>Selected file: {photoFile.name}</p>;
+    } else {
+      return <p>Drag and drop a photo here, or click to select files</p>;
+    }
+  };
 
   useTitle("signup");
   const handelSubmite = (e) => {
@@ -17,8 +40,7 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    creteUser(email, password).then((res) => {
-      const user = res.user;
+    creteUser(email, password,photoFile).then((res) => {
       updateProfile(auth.currentUser, {
         displayName: name,
         photoURL: photoUrl,
@@ -26,11 +48,11 @@ const Register = () => {
         .then(() => {
           toast.success("Sign Successfully", { autoClose: 500 });
           form.reset();
+          navigate(from, { replace: true });
         })
         .catch((error) => {
           toast.error(error.massage, { autoClose: 600 });
         });
-      console.log(user);
     });
   };
   const handelGoogleSign = () => {
@@ -46,14 +68,14 @@ const Register = () => {
   };
   return (
     <div className="w-full mx-auto my-10 max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
-      <h1 className="text-2xl font-bold text-center">Login</h1>
+      <h1 className="text-2xl font-bold text-center">Sign Up</h1>
       <form
         onSubmit={handelSubmite}
         action=""
         className="space-y-6 ng-untouched ng-pristine ng-valid"
       >
         <div className="space-y-1 text-sm">
-          <label htmlFor="username" className="block dark:text-gray-400">
+          <label htmlFor="username" className="block text-gray-400">
             Username
           </label>
           <input
@@ -61,23 +83,25 @@ const Register = () => {
             name="name"
             id="username"
             placeholder="Username"
-            className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 text-black focus:dark:border-violet-400"
+            className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-200 text-black"
           />
         </div>
-        <div className="space-y-1 text-sm">
-          <label htmlFor="username" className="block dark:text-gray-400">
-            PhotoURL
+        <label htmlFor="email" className="block text-gray-400">
+            Photo
           </label>
-          <input
-            type="text"
-            name="photourl"
-            id="photoUrl"
-            placeholder="Photo URL"
-            className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
-          />
+        <div
+          {...getRootProps()}
+          className={`min-h-[100px] border-2 border-dashed ${
+            isDragActive ? "bg-gray-200" : ""
+          } p-4 text-center cursor-pointer`}
+        >
+         
+          <input {...getInputProps()} />
+          {renderDropZoneText()}
         </div>
+
         <div className="space-y-1 text-sm">
-          <label htmlFor="email" className="block dark:text-gray-400">
+          <label htmlFor="email" className="block text-gray-400">
             Email
           </label>
           <input
@@ -85,11 +109,11 @@ const Register = () => {
             name="email"
             id="email"
             placeholder="Email"
-            className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 text-black focus:dark:border-violet-400"
+            className="w-full px-4 py-3 rounded-md bg-gray-200 text-black "
           />
         </div>
         <div className="space-y-1 text-sm">
-          <label htmlFor="password" className="block dark:text-gray-400">
+          <label htmlFor="password" className="block text-gray-400">
             Password
           </label>
           <input
@@ -97,24 +121,24 @@ const Register = () => {
             name="password"
             id="password"
             placeholder="Password"
-            className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 text-black focus:dark:border-violet-400"
+            className="w-full px-4 py-3 rounded-md bg-gray-200 text-black "
           />
-          <div className="flex justify-end text-xs dark:text-gray-400">
+          <div className="flex justify-end text-xs text-gray-400">
             <Link rel="noopener noreferrer" href="#">
               Forgot Password?
             </Link>
           </div>
         </div>
-        <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 bg-amber-600">
+        <button type="submit" className="block w-full p-3 text-center rounded-md text-gray-100 font-bold bg-cyan-500">
           Sign Up
         </button>
       </form>
       <div className="flex items-center pt-4 space-x-1">
-        <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-        <p className="px-3 text-sm dark:text-gray-400">
+        <div className="flex-1 h-px sm:w-16 bg-gray-700"></div>
+        <p className="px-3 text-sm text-gray-400">
           Login with social accounts
         </p>
-        <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+        <div className="flex-1 h-px sm:w-16 bg-gray-700"></div>
       </div>
       <div className="flex justify-center space-x-4">
         <button
@@ -131,13 +155,13 @@ const Register = () => {
           </svg>
         </button>
       </div>
-      <p className="text-xs text-center sm:px-6 dark:text-gray-400">
+      <p className="text-xs text-center sm:px-6 text-gray-400">
         Already have an account ?
         <Link
           to="/login"
           rel="noopener noreferrer"
           href="#"
-          className="underline dark:text-gray-100"
+          className="underline text-gray-100"
         >
           Sign In
         </Link>

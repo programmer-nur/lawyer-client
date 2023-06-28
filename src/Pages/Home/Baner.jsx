@@ -1,27 +1,38 @@
 import React from 'react';
+import lawyer from '../../assets/lawyer.mp4'
 import { Link } from 'react-router-dom';
 const Baner = () => {
     return (
-        <div>
-            <section className="bg-gray-500 text-gray-100">
-	<div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
-		<div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-		   <p>Hello,</p>
-			<h1 className="text-5xl font-bold leading-none sm:text-6xl">
-				I'm Nur Mohammad
-			</h1>
-			<h4 className="text-xl mb-8">A Corporate Lawyer</h4>
-			<div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-				
-				<Link to='services' rel="noopener noreferrer" href="#" className="px-8 focus:outline-none focus:ring hover:ring bg-orange-500 hover:bg-orange-600 py-3 text-lg font-semibold  rounded">My Services</Link>
-			</div>
+		<div className="relative">
+		<video
+		  autoPlay
+		  loop
+		  muted
+		  playsInline
+		  className="w-full h-full object-cover sm:w-full sm:h-auto blur-[2px]"
+		>
+		  <source src={lawyer} type="video/mp4" />
+		</video>
+	  
+		<div className="absolute top-0 left-0 w-full h-full flex items-center flex-col justify-center bg-opacity-50 bg-black">
+		  <h1 className="text-white text-xl md:text-3xl lg:text-5xl text-center font-bold">
+			SOLVE YOUR URGENT LEGAL ISSUES
+		  </h1>
+		  <h5 className="text-white text-center text-sm md:text-lg px-6 py-6 md:px-20 lg:px-40 font-medium">
+			We always try to find out what is the desired outcome of the clients from
+			the services we are rendering to them by best lawyers in Bangladesh and
+			we plan our course of action to meet the desired goal of the client.
+		  </h5>
+		  <Link
+			to="/services"
+			className=" inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 md:px-6 md:py-3 text-base md:font-medium text-white shadow-sm hover:bg-indigo-800 duration-300 hover:bg-left-bottom"
+		  >
+			GET STARTED
+		  </Link>
 		</div>
-		<div className="flex h-full items-center pr-40 justify-center p-6 lg:mt-0 ">
-			<img src="https://i.ibb.co/SK4fFsR/depositphotos-118543600-stock-photo-handsome-caucasian-lawyer-removebg-preview.png" alt="" className="object-contain w-full md:w-[800px] " />
-		</div>
-	</div>
-</section>
-        </div>
+	  </div>
+	  
+
     );
 };
 

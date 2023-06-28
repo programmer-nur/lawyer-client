@@ -9,7 +9,7 @@ const Home = () => {
     useTitle('home')
     return (
         <>
-        <div className='bg-slate-700'>
+        <div className='bg-white'>
             <Baner/>
             <AllServices/>
             <Faq/>

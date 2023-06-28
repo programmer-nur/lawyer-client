@@ -1,74 +1,143 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { MyContext } from '../Context/AuthContext';
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { MyContext } from "../Context/AuthContext";
 
 const Header = () => {
-    const {user,logOut} = useContext(MyContext)
-    const handelLogOut = ()=>{
-        logOut()
-        .then((res)=>{
-            toast.success('Sign Out Successfully', {autoClose:700})
-            const user =res?.user
-            console.log(user);
-        })
+  const { user, logOut } = useContext(MyContext);
+  const handelLogOut = () => {
+    logOut().then((res) => {
+      toast.success("Sign Out Successfully", { autoClose: 700 });
+      const user = res?.user;
+      console.log(user);
+    });
+  };
+  return (
 
-    }
-    return (
-        <header className="p-4 bg-gray-800 text-gray-100">
-        <div className="container flex justify-between  mx-auto">
-            <Link rel="noopener noreferrer" aria-label="Back to homepage" className="flex items-center p-2">
-                <p className='border border-orange-400 px-4 font-bold p-3 text-red-500'>Lawyer</p>
-            </Link>
-            <ul className="flex  flex-wrap  items-center space-x-4 sm:space-x-8">
-                <li className="flex">
-                    <Link to='/' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400">Home</Link>
-                </li>
-                <li className="flex">
-                    <Link to='/services' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Services</Link>
-                </li>
-                {
-                    user?.uid &&
-                    <>
-                    <li className="flex mt-2 lg:mt-0">
-                    <Link to='/addservices' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Add Service</Link>
-                </li>
-                <li className="flex mt-2 lg:mt-0">
-                    <Link to='/review' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Review</Link>
-                </li>
-                </>
-                }
-                <li className="flex mt-2 lg:mt-0">
-                    <Link to='/blog' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Blog</Link>
-                </li>
-                <li className="flex mt-2 lg:mt-0">
-                    <Link to='/about' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">About Me</Link>
-                </li>
-            <div className="items-center flex-shrink-0  lg:flex">
+    <header className="bg-white shadow-sm">
+      <div className="mx-auto max-w-screen-xl  px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <div className="flex-1 md:flex md:items-center md:gap-12">
+            <a className="block text-teal-600" href="/">
+              <span className="text-xl">Home</span>
+            </a>
+          </div>
 
-                {
-                    user?.uid? 
-                    <>
+          <div className="md:flex md:items-center md:gap-12">
+            <nav aria-label="Global" className="hidden md:block">
+              <ul className="flex items-center gap-6 text-sm">
+                <li>
+                  <Link to='/'
+                    className="text-gray-500 transition hover:text-gray-500/75"
+                  >
+                    Home
+                  </Link>
+                </li>
+
+                <li>
+                  <Link to='/services'
+                    className="text-gray-500 transition hover:text-gray-500/75"
                     
-                    <Link>
-                     <button onClick={handelLogOut} className="self-center mt-2 lg:mt-0 px-8 py-3 font-semibold rounded text-gray-100">Sign Out</button>
-                    </Link>
-                    </>
-                    :
-                <Link to='/login'>
+                  >
+                    Services
+                  </Link>
+                </li>
 
-                <button className="self-center mt-2 lg:mt-0 px-8 py-3 rounded">Sign in</button>
-                </Link>
+                {
+                    user?.uid && 
+              <>
+                    <li>
+                  <Link to='/addservices'
+                    className="text-gray-500 transition hover:text-gray-500/75"
+                    
+                  >
+                    Add Service
+                  </Link>
+                </li>
+             
+                <li>
+                  <Link to='/review'
+                    className="text-gray-500 transition hover:text-gray-500/75"
+                   
+                  >
+                    Review
+                  </Link>
+                </li></>
                 }
-                <Link to='/register'>
-                <button className="self-center mt-2 lg:mt-0 px-8 py-3 font-semibold rounded bg-none md:bg-violet-400 text-white md:mt-3  md:text-gray-900">Sign up</button>
-                </Link>
+
+                <li>
+                  <Link to='/blog'
+                    className="text-gray-500 transition hover:text-gray-500/75"
+                    href="/"
+                  >
+                    Blog
+                  </Link>
+                </li>
+
+                <li>
+                  <Link to='/about'
+                    className="text-gray-500 transition hover:text-gray-500/75"
+                    href="/"
+                  >
+                    About Me
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+
+            <div className="flex items-center gap-4">
+              <div className="sm:flex sm:gap-4">
+                {user?.uid ? (
+                  <a
+                    onClick={handelLogOut}
+                    className="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                    href="/"
+                  >
+                    Logout
+                  </a>
+                ) : (
+                  <Link to='/login'
+                    className="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                   
+                  >
+                    Login
+                  </Link>
+                )}
+
+                <div className="hidden sm:flex">
+                  <Link to='/register'
+                    className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+                    href="/"
+                  >
+                    Register
+                  </Link>
+                </div>
+              </div>
+
+              <div className="block md:hidden">
+                <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
-           
-            </ul>
+          </div>
         </div>
+      </div>
     </header>
-);
+  );
 };
 
 export default Header;
