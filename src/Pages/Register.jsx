@@ -1,35 +1,16 @@
 import { updateProfile } from "firebase/auth";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { MyContext } from "../Context/AuthContext";
 import useTitle from "./useTitle";
-import { useDropzone } from "react-dropzone";
 
 const Register = () => {
   const { creteUser, createGoogle, auth } = useContext(MyContext);
   const location = useLocation();
-  const [photoFile, setPhotoFile] = useState(null);
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
-  const onDrop = (acceptedFiles) => {
-    const file = acceptedFiles[0];
-    setPhotoFile(file);
-  };
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,
-    accept: "image/*",
-  });
-  const renderDropZoneText = () => {
-    if (isDragActive) {
-      return <p>Drop the photo here...</p>;
-    } else if (photoFile) {
-      return <p>Selected file: {photoFile.name}</p>;
-    } else {
-      return <p>Drag and drop a photo here, or click to select files</p>;
-    }
-  };
 
   useTitle("signup");
   const handelSubmite = (e) => {
@@ -40,7 +21,7 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    creteUser(email, password,photoFile).then((res) => {
+    creteUser(email, password,photoUrl).then((res) => {
       updateProfile(auth.currentUser, {
         displayName: name,
         photoURL: photoUrl,
@@ -89,16 +70,13 @@ const Register = () => {
         <label htmlFor="email" className="block text-gray-400">
             Photo
           </label>
-        <div
-          {...getRootProps()}
-          className={`min-h-[100px] border-2 border-dashed ${
-            isDragActive ? "bg-gray-200" : ""
-          } p-4 text-center cursor-pointer`}
-        >
-         
-          <input {...getInputProps()} />
-          {renderDropZoneText()}
-        </div>
+          <input
+            type="photourl"
+            name="photourl"
+            id="photourl"
+            placeholder="Photo Url"
+            className="w-full px-4 py-3 rounded-md bg-gray-200 text-black "
+          />
 
         <div className="space-y-1 text-sm">
           <label htmlFor="email" className="block text-gray-400">

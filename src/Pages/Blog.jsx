@@ -5,7 +5,7 @@ const Blog = () => {
     useTitle('blog')
   return (
     <section className="bg-gray-300 h-screen text-black">
-      <div className="container flex flex-col justify-center px-4 py-6 mx-auto py-16 md:p-8">
+      <div className="container flex flex-col justify-center px-4 py-6 mx-auto md:py-16 md:p-8">
         <h2 className="text-2xl font-semibold my-8 sm:text-4xl">Blog</h2>
         <div className="space-y-4">
           <details className="w-full border rounded-lg">

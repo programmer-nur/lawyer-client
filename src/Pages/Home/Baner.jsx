@@ -14,7 +14,7 @@ const Baner = () => {
 		  <source src={lawyer} type="video/mp4" />
 		</video>
 	  
-		<div className="absolute top-0 left-0 w-full h-full flex items-center flex-col justify-center bg-opacity-50 bg-black">
+		<div className="absolute top-0 z-0 left-0 w-full h-full flex items-center flex-col justify-center bg-opacity-50 bg-black">
 		  <h1 className="text-white text-xl md:text-3xl lg:text-5xl text-center font-bold">
 			SOLVE YOUR URGENT LEGAL ISSUES
 		  </h1>
@@ -25,7 +25,7 @@ const Baner = () => {
 		  </h5>
 		  <Link
 			to="/services"
-			className=" inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 md:px-6 md:py-3 text-base md:font-medium text-white shadow-sm hover:bg-indigo-800 duration-300 hover:bg-left-bottom"
+			className=" inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-[#bc8b36] px-4 py-2 md:px-6 md:py-3 text-base md:font-medium text-white shadow-sm hover:bg-[#9f7f4a] duration-300 hover:bg-left-bottom"
 		  >
 			GET STARTED
 		  </Link>
