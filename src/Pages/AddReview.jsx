@@ -42,7 +42,7 @@ const AddReview = ({service}) => {
 		
 	}
     return (
-        <div className="flex flex-col mx-auto max-w-xl p-8 shadow-sm rounded-xl lg:p-12 bg-gray-900 text-gray-100">
+        <div className="flex flex-col mx-auto max-w-xl p-8 shadow-sm rounded-xl lg:p-12 bg-gray-400 text-gray-100">
 	<div className="flex flex-col items-center w-full">
 		<h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
 		
@@ -60,7 +60,7 @@ const AddReview = ({service}) => {
 			<textarea name='message' rows="3" placeholder="Message..." className="p-4 rounded-md resize-none text-gray-900 dark:bg-gray-900" required></textarea>
 			{
 				user?.uid? 
-				<button className='py-2 text-center bg-fuchsia-600 border border-red-500 my-4'>Add Review</button>:
+				<button className='py-2 text-center bg-[#b1976b] rounded-md text-white  my-4'>Add Review</button>:
 				<p className='pt-2'>Please login to add a review ! <Link className='text-red-600' to='/login'>Log In</Link></p>
 
 			}

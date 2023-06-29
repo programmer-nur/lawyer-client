@@ -10,7 +10,6 @@ import "swiper/css/navigation";
 
 import "./SwiperStyle/testimonial.css";
 
-// import required modules
 import {
   Autoplay,
   EffectCoverflow,
@@ -42,18 +41,10 @@ const Testimonial = () => {
         </div>
         <span className="text-[#b1976b] text-xl font-thin">|</span>
         <Swiper
-          effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
-          slidesPerView={"auto"}
+          slidesPerView={"1"}
           loop={true}
-          coverflowEffect={{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-          }}
           pagination={{
             clickable: true,
           }}
@@ -64,7 +55,7 @@ const Testimonial = () => {
             delay: 2000,
             disableOnInteraction: false,
           }}
-          modules={[EffectCoverflow, Autoplay, Pagination, Keyboard, Navigation]}
+          modules={[EffectCoverflow ,Autoplay, Pagination, Keyboard, Navigation]}
           className="mySwiper"
         >
             {

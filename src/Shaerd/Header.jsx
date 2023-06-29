@@ -14,12 +14,12 @@ const Header = () => {
   };
   return (
 
-    <header className="bg-white shadow-sm">
+    <header className="bg-white border-b border">
       <div className="mx-auto max-w-screen-xl  px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">
-            <a className="block text-teal-600" href="/">
-              <span className="text-xl">Home</span>
+            <a className="block text-[#b1976b] font-bold" href="/">
+              <span className="text-xl">Lawyer</span>
             </a>
           </div>
 
@@ -90,14 +90,14 @@ const Header = () => {
                 {user?.uid ? (
                   <a
                     onClick={handelLogOut}
-                    className="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                    className="rounded-md bg-[#b1976b] px-5 py-2.5 text-sm font-medium text-white shadow"
                     href="/"
                   >
                     Logout
                   </a>
                 ) : (
                   <Link to='/login'
-                    className="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                    className="rounded-md bg-[#b1976b] px-5 py-2.5 text-sm font-medium text-white shadow"
                    
                   >
                     Login
@@ -106,7 +106,7 @@ const Header = () => {
 
                 <div className="hidden sm:flex">
                   <Link to='/register'
-                    className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+                    className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-[#b1976b]"
                     href="/"
                   >
                     Register

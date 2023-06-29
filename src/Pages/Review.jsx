@@ -17,7 +17,7 @@ const Review = ({service}) => {
     return (
         <>
             <h3 className="text-3xl">There are: {reviews.length} reviews</h3>
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-2'>
+        <div className='grid py-6 grid-cols-1 md:grid-cols-3 gap-2'>
         {
             reviews.map(review=><ReviewDetails
             key={review._id}
