@@ -15,7 +15,7 @@ const LimiteServices = ({service}) => {
 			<p>{des.slice(0,99)}...</p>
 		</div>
 		<div className='my-5'>
-			<Link to={`/service/${_id}`} className='p-2  hover:bg-green-500 bg-green-600 text-white font-semibold rounded-sm' href="/#">
+			<Link to={`/service/${_id}`} className='p-2  hover:bg-bg-[#be9246] bg-[#b1976b] text-white font-medium rounded-md' href="/#">
 				Read More
 
 			</Link>

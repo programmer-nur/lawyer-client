@@ -8,7 +8,7 @@ const Services = () => {
   useTitle("service");
   return (
     <>
-     <h2 className="text-center py-5 text-4xl">All Services</h2>
+     <h2 className="text-center text-black py-5 text-4xl">Legal Practices Area</h2>
     <div className="grid grid-cols-1 md:grid-cols-3 p-5 m-6 w-full mx-auto gap-7">
       {services.map((service) => (
         <ServiceItem key={service._id} service={service} />

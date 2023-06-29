@@ -9,7 +9,7 @@ const Baner = () => {
 		  loop
 		  muted
 		  playsInline
-		  className="w-full h-full object-cover sm:w-full sm:h-auto blur-[2px]"
+		  className="w-full h-full object-cover sm:w-full sm:h-auto blur-[3px]"
 		>
 		  <source src={lawyer} type="video/mp4" />
 		</video>

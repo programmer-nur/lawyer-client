@@ -13,15 +13,15 @@ const AllServices = () => {
   }, []);
 
   return (
-    <section className="mx-6 md:mx-16">
-     <div className="py-6  md:py-16">
-     <span className="text-lime-500 text-xl text-center">Services</span>
-      <h3 className="text-5xl text-center text-black/70 font-semibold">
+    <section className="mx-6 md:mx-16 my-6  md:my-16">
+     <div>
+     <span className="text-gray-400 text-sm md:text-lg   text-center">WHAT WE ARE EXPERT AT</span>
+      <h3 className="lg:text-5xl text-2xl md:text-3xl mt-2 text-center text-black font-semibold">
        
-       Our Services{" "}
+      Legal Practices Area{" "}
       </h3>
      </div>
-      <div className="grid grid-cols-1 mx-3 md:grid-cols-3 gap-4">
+      <div className="grid py-6 md:py-16 grid-cols-1 mx-3 md:grid-cols-3 gap-4">
         {services?.slice(0,6)?.map((service) => (
           <LimiteServices key={service._id} service={service} />
         ))}
@@ -30,7 +30,7 @@ const AllServices = () => {
         <Link to="/services">
           <button
             type="button"
-            className="px-8 py-3 font-semibold rounded bg-gray-200 text-gray-900"
+            className="px-8 py-3 font-semibold rounded bg-[#b1976b] text-white"
           >
             See All
           </button>

@@ -4,11 +4,11 @@ import useTitle from './useTitle';
 const About = () => {
 	useTitle('about')
     return (
-        <section className="bg-gray-800  text-gray-100">
+        <section className="bg-white  text-black">
 	<div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
 			<img src="https://i.ibb.co/ZJ3JDDK/lalyer.webp" alt="" className="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:bg-gray-500" />
 			<div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
-				<h3 className="text-2xl text-orange-400 font-semibold sm:text-4xl group-hover:underline group-focus:underline">About Me</h3>
+				<h3 className="text-2xl text-black font-semibold sm:text-4xl group-hover:underline group-focus:underline">About Me</h3>
 				
 				<p>Advocate Nur Mohammad has more than 15 years of experience in the field of corporate and commercial litigation and in international commercial arbitration. He has conducted a number of institutional international commercial arbitrations in the Singapore International Arbitration Centre (SIAC), the Hong Kong International Arbitration Centre (HKIAC), under the ICC rules. He has also been engaged in an ad hoc arbitration under the UNCITRAL arbitration rules in the Permanent Court of Arbitration (PCA) in the Hague, the Netherlands.
 

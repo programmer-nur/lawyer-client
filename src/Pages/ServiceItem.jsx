@@ -18,9 +18,8 @@ const ServiceItem = ({service}) => {
 			<p>{des.slice(0,99)}...</p>
 		</div>
 		<div className='my-5'>
-			<Link to={`/service/${_id}`} className='p-2  hover:bg-green-500 bg-green-600 text-white font-semibold rounded-sm' href="/#">
+			<Link to={`/service/${_id}`} className='p-2  hover:bg-[#c49137] bg-[#b1976b] text-white font-semibold rounded-sm' href="/#">
 				Read More
-
 			</Link>
 		</div>
 	</div>
