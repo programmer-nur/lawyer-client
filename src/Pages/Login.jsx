@@ -70,7 +70,7 @@ const Login = () => {
   }, [user, from, navigate]);
   return (
     <div className="w-full max-w-md mx-auto my-9 p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
-      <h1 className="text-2xl font-bold text-center">Login</h1>
+      <h1 className="text-2xl font-bold text-center">Log In</h1>
       <form
         onSubmit={handelLogin}
         action=""
@@ -108,7 +108,7 @@ const Login = () => {
           </div>
         </div>
         <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 bg-[#b1976b]">
-          Sign in
+        Log In
         </button>
       </form>
       <div className="flex items-center pt-4 space-x-1">

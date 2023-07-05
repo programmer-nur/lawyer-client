@@ -64,19 +64,19 @@ const Footer = () => {
         </nav>
       </div>
       <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Categories</h2>
         <nav class="list-none mb-10">
           <li>
-            <a class="text-gray-600 hover:text-gray-800">First Link</a>
+            <a class="text-gray-600 hover:text-gray-800">Bussniess Law</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+            <a class="text-gray-600 hover:text-gray-800">Criminal Law</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+            <a class="text-gray-600 hover:text-gray-800">Education Law</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+            <a class="text-gray-600 hover:text-gray-800">Real State Law</a>
           </li>
         </nav>
       </div>

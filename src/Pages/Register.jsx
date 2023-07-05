@@ -107,7 +107,7 @@ const Register = () => {
             </Link>
           </div>
         </div>
-        <button type="submit" className="block w-full p-3 text-center rounded-md text-gray-100 font-bold bg-cyan-500">
+        <button type="submit" className="block w-full p-3 text-center rounded-md dark:text-gray-900 bg-[#b1976b]">
           Sign Up
         </button>
       </form>
